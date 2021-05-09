@@ -5,7 +5,7 @@ export const clearInput = () => {
 }
 
 export const clearResults = () => {
-    elements.searchResults.innerHTML = '';
+    elements.movieList.innerHTML = '';
 }
 
 
@@ -17,13 +17,14 @@ export const displayResults = data => {
                 <div class="media-body">
                     <h5 class="mt-0 mb-1">
                         <span class="badge badge-primary">${movie.vote_average}</span> 
-                        ${movie.title}
+                        <a href="#${movie.id}">${movie.title}</a>
                     </h5>
                     <p>${movie.overview}</p>
                 </div>
             </li>
         `;
 
-        elements.searchResults.insertAdjacentHTML('beforeend', html);
+        elements.movieListContainer.classList.add('d-block');    
+        elements.movieList.insertAdjacentHTML('beforeend', html);
     })
 }
